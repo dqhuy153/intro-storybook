@@ -23,7 +23,6 @@ import Badge, { BadgeVariant } from '../atoms/Badge'
 import { IRootState } from 'reducers'
 
 const ToDoList = ({
-  loading,
   data,
   type = 'todo',
   onDelete,
@@ -160,9 +159,7 @@ export type ToDoListProps = ReturnType<typeof mapStateToProps> &
     data: Todo[]
   }
 
-const mapStateToProps = (state: IRootState) => ({
-  loading: getLoadingTodoList(state.todoState),
-})
+const mapStateToProps = (state: IRootState) => ({})
 
 const mapDispatchToProps = {
   onSetComplete: setCompletedTodo,

@@ -12,4 +12,4 @@ const mapStateToProps = (state: IRootState) => ({})
 
 const mapDispatchToProps = {}
 
-export default connect(null, mapDispatchToProps)(Template)
+export default connect(mapStateToProps, mapDispatchToProps)(Template)

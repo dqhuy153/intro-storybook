@@ -1,4 +1,5 @@
 import { Divider, HStack, Spinner } from '@chakra-ui/react'
+import Button from 'components/atoms/Button'
 import { connect } from 'react-redux'
 import { IRootState } from 'reducers'
 import {
