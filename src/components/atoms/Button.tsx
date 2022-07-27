@@ -58,7 +58,7 @@ const Button = ({ label, variant = 'primary', ...props }: ButtonProps) => {
       {...getButtonPropsByVariant(variant)}
       {...props}
     >
-      {label || props.children}
+      {label || props.children || 'Button'}
     </ChakraButton>
   )
 }
