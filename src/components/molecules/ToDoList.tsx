@@ -9,7 +9,6 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { FaAngleLeft, FaAngleRight, FaCheck, FaTrash } from 'react-icons/fa'
-import { getLoadingTodoList } from 'reducers/todo/selectors'
 import { connect } from 'react-redux'
 import {
   doDeleteTodo,

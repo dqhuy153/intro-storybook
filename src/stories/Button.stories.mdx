@@ -1,0 +1,129 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import Button, { ButtonProps } from 'components/atoms/Button'
+import { Provider } from 'react-redux'
+import { ChakraProvider } from '@chakra-ui/react'
+
+import store from '../store'
+
+<Meta
+  title='MDX/Button'
+  argTypes={{
+    backgroundColor: { control: 'color' },
+    color: { control: 'color' },
+    label: {
+      defaultValue: 'Button',
+      type: 'string',
+      control: 'select',
+      options: ['Normal', 'Bold', 'Italic'],
+      mapping: {
+        Bold: <b>Bold</b>,
+        Italic: <i>Italic</i>,
+      },
+      table: {
+        defaultValue: {
+          summary: 'Button',
+        },
+        type: {
+          summary: "Button's label",
+          detail: 'Listing of available options',
+        },
+      },
+    },
+    variant: {
+      type: 'string',
+      control: 'select',
+      options: [
+        'primary',
+        'secondary',
+        'outline',
+        'success',
+        'warning',
+        'danger',
+      ],
+      table: {
+        defaultValue: {
+          summary: 'primary',
+        },
+        type: {
+          summary: "Button's variant",
+          detail: 'Text displayed by the Badge',
+        },
+      },
+    },
+  }}
+  component={Button}
+/>
+
+export const Template = args => <Button {...args} />
+
+# Button
+
+Buttons are used as triggers for actions. They are used in forms, toolbars,
+dialog footers and as stand-alone action triggers.
+
+## Installation
+
+```sh
+yarn add @chakra-ui/button
+
+# or
+
+npm i @chakra-ui/button
+```
+
+## Import component
+
+```jsx
+import { Button } from '@chakra-ui/button'
+```
+
+## Usage
+
+<Canvas>
+  <Story
+    name='button'
+    args={{
+      variant: 'success',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Note: Embedding stories
+
+<!-- id = group-subgroup-...--name -->
+
+<Story id='component-button--primary' />
+
+<ArgsTable of={Button} />
+
+### Button Sizes
+
+Use the `size` prop to change the size of the button. You can set the value to
+`xs`, `sm`, `md`, or `lg`.
+
+<Canvas>
+  <Story name='ButtonWithSizes'>
+    <Button label={'Button'} size='xs' mx={2} />
+    <Button label={'Button'} size='sm' mx={2} />
+    <Button label={'Button'} size='md' mx={2} />
+    <Button label={'Button'} size='lg' mx={2} />
+  </Story>
+</Canvas>
+
+### Button Variant
+
+Use the `variant` prop to change the visual style of the Button. You can set the
+value to `solid`, `ghost`, `outline`, or `link`.
+
+<Canvas>
+  <Story name='ButtonWithVariants'>
+    <Button label='primary' variant='primary' mx={2} />
+    <Button label='secondary' variant='secondary' mx={2} />
+    <Button label='outline' variant='outline' mx={2} />
+    <Button label='success' variant='success' mx={2} />
+    <Button label='warning' variant='warning' mx={2} />
+    <Button label='danger' variant='danger' mx={2} />
+  </Story>
+</Canvas>

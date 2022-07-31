@@ -49,6 +49,12 @@ const todoSlice = createSlice({
     doFetchTodo(state: ITodoState, _action: any) {
       state.loading = true
     },
+    doSetTodos(state: ITodoState, action: { payload: Todo[] }) {
+      state.todos = action.payload
+    },
+    doFetchMockTodo(state: ITodoState, _action: any) {
+      state.loading = true
+    },
     doFetchTodoSuccess(state: ITodoState, action: { payload: Todo[] }) {
       state.todos = action.payload
       state.loading = false
@@ -67,6 +73,8 @@ export const {
   setCompletedTodo,
   doDeleteTodo,
   doFetchTodo,
+  doFetchMockTodo,
+  doSetTodos,
   doFetchTodoSuccess,
   doFetchTodoError,
 } = todoSlice.actions

@@ -5,6 +5,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
+    //'storybook-addon-react-router-v6', //addon for custom routing (not working)
   ],
   framework: '@storybook/react',
   core: {

@@ -8,21 +8,28 @@ import {
   Heading,
   VStack,
 } from '@chakra-ui/react'
-import AddTodo from './components/todo/AddTodo'
-import { getInitialColorMode } from './reducers/theme/selectors'
+import AddTodo from '../molecules/AddTodo'
+import { getInitialColorMode } from '../../reducers/theme/selectors'
 import { connect } from 'react-redux'
-import { getTodoError } from './reducers/todo/selectors'
-import { doFetchTodo } from './reducers/todo'
-import { IRootState } from './reducers'
-import TaskBoard from 'components/todo/TaskBoard'
+import { getTodoError } from '../../reducers/todo/selectors'
+import { doFetchMockTodo, doSetTodos, Todo } from '../../reducers/todo'
+import { IRootState } from '../../reducers'
+import TaskBoard from 'components/molecules/TaskBoard'
+import { ColorModeSwitcher } from 'components/atoms/ColorModeSwitcher'
 
 const imageUrl =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23005dff' fill-opacity='0.05'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"
 
-const App = ({ error, themeState, onFetch }: Props) => {
+const App = ({
+  error,
+  themeState,
+  onFetch,
+  storybookData,
+  onSetTodos,
+}: Props) => {
   useEffect(() => {
-    onFetch(null)
-  }, [])
+    storybookData ? onSetTodos(storybookData) : onFetch(null)
+  }, [storybookData])
 
   const config = {
     initialColorMode: getInitialColorMode(themeState),
@@ -42,7 +49,7 @@ const App = ({ error, themeState, onFetch }: Props) => {
         minH={'96vh'}
       >
         <Grid p={3}>
-          {/* <ColorModeSwitcher aria-label='' justifySelf='flex-end' /> */}
+          <ColorModeSwitcher aria-label='' justifySelf='flex-end' />
           <VStack spacing={8}>
             <Heading
               mt={'8'}
@@ -73,7 +80,9 @@ const App = ({ error, themeState, onFetch }: Props) => {
 }
 
 export type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {}
+  typeof mapDispatchToProps & {
+    storybookData?: Todo[]
+  }
 
 const mapStateToProps = (state: IRootState) => ({
   themeState: state.themeState,
@@ -81,7 +90,8 @@ const mapStateToProps = (state: IRootState) => ({
 })
 
 const mapDispatchToProps = {
-  onFetch: doFetchTodo,
+  onFetch: doFetchMockTodo,
+  onSetTodos: doSetTodos,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -44,11 +44,6 @@ const Button = ({ label, variant = 'primary', ...props }: ButtonProps) => {
     }
   }
 
-  const a = {
-    colorScheme: 'green',
-    variant: 'solid',
-  }
-
   return (
     <ChakraButton
       px={4}

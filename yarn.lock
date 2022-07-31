@@ -3524,6 +3524,13 @@
     lodash "^4.17.21"
     regenerator-runtime "^0.13.7"
 
+"@storybook/expect@storybook-jest":
+  version "27.5.2-0"
+  resolved "https://registry.yarnpkg.com/@storybook/expect/-/expect-27.5.2-0.tgz#131fc4336106805ccd100809a3c2852d31f1da68"
+  integrity sha512-cP99mhWN/JeCp7VSIiymvj5tmuMY050iFohvp8Zq+kewKsBSZ6/qpTJAGCCZk6pneTcp4S0Fm5BSqyxzbyJ3gw==
+  dependencies:
+    "@types/jest" ">=26.0.0"
+
 "@storybook/instrumenter@6.5.9", "@storybook/instrumenter@^6.4.0":
   version "6.5.9"
   resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-6.5.9.tgz#885d9dec31b7b7fa6ea29b446105480450e527b8"
@@ -3534,6 +3541,16 @@
     "@storybook/core-events" "6.5.9"
     core-js "^3.8.2"
     global "^4.4.0"
+
+"@storybook/jest@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@storybook/jest/-/jest-0.0.10.tgz#4fbc43ebc3ae6cce8232d6bd9b56ef710f481e52"
+  integrity sha512-qeYLIplpcOUQXboJde5pRCjTvkGmF80jEszRUoNYCNcEPfC2sMK68Wq6Ct8EQj3CoEdJqsK54O2YYh+7D9S+ag==
+  dependencies:
+    "@storybook/expect" storybook-jest
+    "@storybook/instrumenter" "^6.4.0"
+    "@testing-library/jest-dom" "^5.16.2"
+    jest-mock "^27.3.0"
 
 "@storybook/manager-webpack4@6.5.9":
   version "6.5.9"
@@ -3855,7 +3872,7 @@
     resolve-from "^5.0.0"
     ts-dedent "^1.1.0"
 
-"@storybook/theming@6.5.9":
+"@storybook/theming@6.5.9", "@storybook/theming@^6.5.9":
   version "6.5.9"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.5.9.tgz#13f60a3a3cd73ceb5caf9f188e1627e79f1891aa"
   integrity sha512-KM0AMP5jMQPAdaO8tlbFCYqx9uYM/hZXGSVUhznhLYu7bhNAIK7ZVmXxyE/z/khM++8eUHzRoZGiO/cwCkg9Xw==
@@ -4012,7 +4029,7 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
-"@testing-library/jest-dom@^5.16.4":
+"@testing-library/jest-dom@^5.16.2", "@testing-library/jest-dom@^5.16.4":
   version "5.16.4"
   resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.16.4.tgz#938302d7b8b483963a3ae821f1c0808f872245cd"
   integrity sha512-Gy+IoFutbMQcky0k+bqqumXZ1cTGswLsFqmNLzNdSKkU9KGV2u9oXhukCbbJ9/LRPKiqwxEE8VpV/+YZlfkPUA==
@@ -4242,7 +4259,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
+"@types/jest@*", "@types/jest@>=26.0.0":
   version "28.1.6"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-28.1.6.tgz#d6a9cdd38967d2d746861fb5be6b120e38284dd4"
   integrity sha512-0RbGAFMfcBJKOmqRazM8L98uokwuwD5F8rHrv/ZMbrZBwVOWZUyPG6VFNscjYr/vjM3Vu4fRrCPbOs42AfemaQ==
@@ -10323,7 +10340,7 @@ jest-message-util@^28.1.3:
     slash "^3.0.0"
     stack-utils "^2.0.3"
 
-jest-mock@^27.0.6, jest-mock@^27.5.1:
+jest-mock@^27.0.6, jest-mock@^27.3.0, jest-mock@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-27.5.1.tgz#19948336d49ef4d9c52021d34ac7b5f36ff967d6"
   integrity sha512-K4jKbY1d4ENhbrG2zuPWaQBvDly+iZ2yAW+T1fATN78hc0sInwn7wZB8XtlNnvHug5RMwV897Xm4LqmPM4e2Og==
@@ -13378,7 +13395,7 @@ react-icons@^3.0.0:
   dependencies:
     camelcase "^5.0.0"
 
-react-inspector@^5.1.0:
+react-inspector@^5.1.0, react-inspector@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-5.1.1.tgz#58476c78fde05d5055646ed8ec02030af42953c8"
   integrity sha512-GURDaYzoLbW8pMGXwYPDBIv6nqei4kK7LPRZ9q9HCZF54wqXz/dnylBp/kfE9XmekBhHvLDdcYeyIwSrvtOiWg==
@@ -13554,7 +13571,7 @@ react-syntax-highlighter@^11.0.2:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
-react-syntax-highlighter@^15.4.5:
+react-syntax-highlighter@^15.4.5, react-syntax-highlighter@^15.5.0:
   version "15.5.0"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-15.5.0.tgz#4b3eccc2325fa2ec8eff1e2d6c18fa4a9e07ab20"
   integrity sha512-+zq2myprEnQmH5yw6Gqc8lD55QHnpKaU8TOcFeC/Lg/MQSs8UknEA0JC4nTZGFAXC2J2Hyj/ijJ7NlabyPi2gg==
@@ -14703,6 +14720,13 @@ store2@^2.12.0, store2@^2.7.1:
   version "2.14.2"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
+
+storybook-addon-react-router-v6@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/storybook-addon-react-router-v6/-/storybook-addon-react-router-v6-0.1.11.tgz#1b67172cc0fb20f6a64dcabce3a7f74c8a005b13"
+  integrity sha512-LDP8EcOlr0GipA2uFfvknxCgPT2IoB9ru3l7OxWKjySkf0RKk8bVJnfNqMjLCQq7NSpfdrgIjNOi5T1feoqE+g==
+  dependencies:
+    react-inspector "^5.1.1"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
