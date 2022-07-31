@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import TodoScreen from 'components/organisms/TodoScreen'
+import TodoScreen from 'components/pages/TodoScreen'
 import { Todo, TodoEnum } from 'reducers/todo'
 
 export default {
