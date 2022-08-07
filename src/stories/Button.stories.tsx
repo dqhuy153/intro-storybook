@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 import Button, { ButtonProps } from 'components/atoms/Button'
 import { CustomDocumentationComponent } from 'components/documents/Button'
 import { Provider } from 'react-redux'
@@ -22,10 +22,15 @@ export default {
       type: 'string',
       //control types: https://storybook.js.org/docs/react/essentials/controls#configuration
       control: 'text',
-      options: ['Normal', 'Bold', 'Italic'],
+      options: ['Normal', 'Bold', 'Italic', 'Cafesang'],
       mapping: {
         Bold: <b>Bold</b>,
         Italic: <i>Italic</i>,
+        Cafesang: (
+          <b>
+            <i>Cafesang</i>
+          </b>
+        ),
       },
     },
     variant: {
@@ -51,17 +56,30 @@ export default {
     backgrounds: {
       values: [{ name: 'red', value: '#f00' }],
     },
-    docs: {
-      page: () => (
-        <Provider store={store}>
-          <ChakraProvider>
-            <CustomDocumentationComponent />
-          </ChakraProvider>
-        </Provider>
-      ),
-    },
+    // custom docs
+    // docs: {
+    //   page: () => (
+    //     <Provider store={store}>
+    //       <ChakraProvider>
+    //         <CustomDocumentationComponent />
+    //       </ChakraProvider>
+    //     </Provider>
+    //   ),
+    // },
   },
-  decorators: [story => <Provider store={store}>{story()}</Provider>],
+  //custom wrap element
+  // decorators: [
+  //   story => (
+  //     <Box
+  //       p={6}
+  //       alignItems={'center'}
+  //       justifyContent={'center'}
+  //       display={'flex'}
+  //     >
+  //       {story()}
+  //     </Box>
+  //   ),
+  // ],
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />

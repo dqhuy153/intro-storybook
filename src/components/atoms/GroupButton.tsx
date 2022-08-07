@@ -19,7 +19,7 @@ const GroupButton = ({
         </HStack>
       )}
       {orientation === 'vertical' && (
-        <VStack onClick={onClick}>
+        <VStack onClick={onClick} alignItems={'flex-start'}>
           {buttonProps.map(buttonProp => (
             <Button {...buttonProp} />
           ))}
